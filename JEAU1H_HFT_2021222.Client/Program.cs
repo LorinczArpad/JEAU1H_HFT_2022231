@@ -8,7 +8,7 @@ namespace JEAU1H_HFT_2021222.Client
     {
         static void Main(string[] args)
         {
-           
+            Console.WriteLine("test");
         }
     }
 }
