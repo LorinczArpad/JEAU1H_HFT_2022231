@@ -16,8 +16,8 @@ namespace JEAU1H_HFT_2021222.Client
             var minrepo = new MinRequirementsRepository(ctx);
             var studrepo = new StudioRepository(ctx);
             var logic = new GameLogic(gamerepo,studrepo,minrepo);
-            
-           
+            var studlogic = new StudioLogic(studrepo);
+            var studio = new Studio();
             
         }
     }

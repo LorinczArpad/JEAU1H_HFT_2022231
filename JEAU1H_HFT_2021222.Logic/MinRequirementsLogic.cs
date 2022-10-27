@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JEAU1H_HFT_2021222.Logic
 {
-    class MinRequirementsLogic : IMinRequirementsLogic
+    public class MinRequirementsLogic : IMinRequirementsLogic
     {
         IRepository<MinRequirements> repo;
 
@@ -19,7 +19,13 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public void Create(MinRequirements item)
         {
-            this.repo.Create(item);
+            if(item.CPU.Length < 240 && item.GPU.Length < 240) {
+                this.repo.Create(item);
+             }
+            else
+            {
+                throw new ArgumentException("CPU and GPU names can't be longer than 240 character");
+            }
         }
 
         public void Delete(int id)
