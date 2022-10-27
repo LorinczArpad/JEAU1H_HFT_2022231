@@ -19,12 +19,26 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public void Create(Studio item)
         {
-            this.repo.Create(item);
+            if (item.Name != null && item.CEOName != null)
+            {
+                this.repo.Create(item);
+            }
+            else
+            {
+                throw new ArgumentException("Cant add studio without a name or ceo name");
+            }
         }
 
         public void Delete(int id)
         {
-            this.repo.Delete(id);
+            if (repo.Read(id) != null)
+            {
+                this.repo.Delete(id);
+            }
+            else
+            {
+                throw new ArgumentException("Not found");
+            }
         }
 
         public Studio Read(int id)

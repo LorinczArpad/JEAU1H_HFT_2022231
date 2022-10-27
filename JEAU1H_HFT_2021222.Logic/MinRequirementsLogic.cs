@@ -24,7 +24,14 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public void Delete(int id)
         {
-            this.repo.Delete(id);
+            if (repo.Read(id) != null)
+            {
+                this.repo.Delete(id);
+            }
+            else
+            {
+                throw new ArgumentException("Not found");
+            }
         }
 
         public MinRequirements Read(int id)
