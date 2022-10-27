@@ -60,7 +60,14 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public Game Read(int id)
         {
-            return this.repo.Read(id);
+            if (repo.ReadAll().Last().GameID > id)
+            {
+                return this.repo.Read(id);
+            }
+            else
+            {
+                throw new ArgumentException("Item not found");
+            }
         }
 
         public IEnumerable<Game> ReadAll()

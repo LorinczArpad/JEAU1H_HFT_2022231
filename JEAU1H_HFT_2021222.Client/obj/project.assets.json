@@ -23,6 +23,15 @@
           "lib/netstandard1.5/Castle.Core.dll": {}
         }
       },
+      "ConsoleMenu-simple/2.4.3": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/ConsoleMenu.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/ConsoleMenu.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/5.0.14": {
         "type": "package",
         "dependencies": {
@@ -1608,6 +1617,21 @@
         "lib/netstandard1.5/Castle.Core.dll",
         "lib/netstandard1.5/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "ConsoleMenu-simple/2.4.3": {
+      "sha512": "wrjK/VTZU64eK0jXH3TAyw+omoYNrGtESk0FcdmPtCc4YhNQVEFdUgkioorS09dEPaTajRxQZU6Tg/uDl4Ofsg==",
+      "type": "package",
+      "path": "consolemenu-simple/2.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "consolemenu-simple.2.4.3.nupkg.sha512",
+        "consolemenu-simple.nuspec",
+        "lib/net5.0/ConsoleMenu.dll",
+        "lib/netstandard1.3/ConsoleMenu.dll"
       ]
     },
     "Microsoft.EntityFrameworkCore/5.0.14": {
@@ -5640,6 +5664,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "ConsoleMenu-simple >= 2.4.3",
       "JEAU1H_HFT_2021222.Logic >= 1.0.0",
       "JEAU1H_HFT_2021222.Models >= 1.0.0",
       "JEAU1H_HFT_2021222.Repository >= 1.0.0",
@@ -5695,6 +5720,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "ConsoleMenu-simple": {
+            "target": "Package",
+            "version": "[2.4.3, )"
+          },
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[5.0.14, )"

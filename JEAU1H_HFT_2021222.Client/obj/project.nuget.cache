@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UEzX+Wl4Dk+QN//+DbPXotxpaA0kHJEMqlVW0UNoee/fy16v48aUUPasCf0T2xAWlWugC3MuSfJKDgFjlDvBKg==",
+  "dgSpecHash": "9N6KjG7UtbWKv6pYExD/y6pi6jAI3tXd7ZcDPxxp1UEqdGyHlbFbj+ncwz9GR0FNOo2wgRFZYrgzCPaAXjqw7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Client\\JEAU1H_HFT_2021222.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dudu\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\consolemenu-simple\\2.4.3\\consolemenu-simple.2.4.3.nupkg.sha512",
     "C:\\Users\\dudu\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.14\\microsoft.entityframeworkcore.5.0.14.nupkg.sha512",
     "C:\\Users\\dudu\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.14\\microsoft.entityframeworkcore.abstractions.5.0.14.nupkg.sha512",
     "C:\\Users\\dudu\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.14\\microsoft.entityframeworkcore.analyzers.5.0.14.nupkg.sha512",

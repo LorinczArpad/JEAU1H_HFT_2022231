@@ -35,3 +35,4 @@ C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Client\obj\Debu
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Client\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Client\bin\Debug\net5.0\JEAU1H_HFT_2021222.Logic.dll
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Client\bin\Debug\net5.0\JEAU1H_HFT_2021222.Logic.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Client\bin\Debug\net5.0\ConsoleMenu.dll
