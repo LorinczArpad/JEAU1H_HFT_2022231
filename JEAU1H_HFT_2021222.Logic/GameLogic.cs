@@ -5,13 +5,13 @@ using JEAU1H_HFT_2021222.Models;
 using JEAU1H_HFT_2021222.Repository;
 namespace JEAU1H_HFT_2021222.Logic
 {
-    public class GameLogic 
+    public class GameLogic
     {
         IRepository<Game> repo;
         IRepository<MinRequirements> minrepo;
         IRepository<Studio> studrepo;
 
-       
+
         public GameLogic(IRepository<Game> repo, IRepository<MinRequirements> minrepo)
         {
             this.repo = repo;
@@ -51,7 +51,7 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public IEnumerable<Game> ReadAll()
         {
-           return this.repo.ReadAll();
+            return this.repo.ReadAll();
         }
 
         public void Update(Game item)
@@ -61,6 +61,15 @@ namespace JEAU1H_HFT_2021222.Logic
         public List<Game> ReleaseYearSearch(string year)
         {
             return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
+        }
+        public IEnumerable<IGrouping<Studio, Game>> GamesWithStudios()
+        {
+            var groupbystudios =
+            from games in repo.ReadAll()
+            group games by studrepo.Read(games.StudioId) into newGroup
+            orderby newGroup.Key
+            select newGroup;
+            return groupbystudios;
         }
     }
 }
