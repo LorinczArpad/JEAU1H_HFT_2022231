@@ -30,5 +30,12 @@ namespace JEAU1H_HFT_2021222.Models
             this.CPU = cpu;
             this.GPU = gpu;
         }
+        public MinRequirements( string cpu, string gpu)
+        {
+           
+
+            this.CPU = cpu;
+            this.GPU = gpu;
+        }
     }
 }
