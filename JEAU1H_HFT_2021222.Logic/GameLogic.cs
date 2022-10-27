@@ -5,7 +5,7 @@ using JEAU1H_HFT_2021222.Models;
 using JEAU1H_HFT_2021222.Repository;
 namespace JEAU1H_HFT_2021222.Logic
 {
-    public class GameLogic
+    public class GameLogic : IGameLogic
     {
         IRepository<Game> repo;
         IRepository<MinRequirements> minrepo;

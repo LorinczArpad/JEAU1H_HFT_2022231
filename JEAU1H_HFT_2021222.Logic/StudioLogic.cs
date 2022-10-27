@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JEAU1H_HFT_2021222.Logic
 {
-    class StudioLogic
+    class StudioLogic : IStudioLogic
     {
         IRepository<Studio> repo;
 
