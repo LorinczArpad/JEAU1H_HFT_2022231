@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JEAU1H_HFT_2021222.Logic\JEAU1H_HFT_2021222.Logic.csproj" />
     <ProjectReference Include="..\JEAU1H_HFT_2021222.Models\JEAU1H_HFT_2021222.Models.csproj" />
+    <ProjectReference Include="..\JEAU1H_HFT_2021222.Repository\JEAU1H_HFT_2021222.Repository.csproj" />
    
 	 
   </ItemGroup>

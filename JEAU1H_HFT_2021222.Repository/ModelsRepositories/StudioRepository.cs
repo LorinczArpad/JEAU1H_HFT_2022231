@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JEAU1H_HFT_2021222.Repository
 {
-    class StudioRepository : Repository<Studio>, IRepository<Studio>
+    public class StudioRepository : Repository<Studio>, IRepository<Studio>
     {
         public StudioRepository(VideoGamesDbContext ctx) : base(ctx)
         {

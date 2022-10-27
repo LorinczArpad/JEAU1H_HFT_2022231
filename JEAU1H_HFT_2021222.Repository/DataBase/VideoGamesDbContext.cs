@@ -64,10 +64,10 @@ namespace JEAU1H_HFT_2021222.Repository
             });
             modelBuilder.Entity<MinRequirements>().HasData(new MinRequirements[]
            {
-                new MinRequirements(1,"Gyenge","Gyenge"),
-                new MinRequirements(2,"Közepes","Közepes"),
-                new MinRequirements(3,"Erős","Erős"),
-                new MinRequirements(4,"Közepes","Erős"),
+                new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060"),
+                new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080"),
+                new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti"),
+                new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600"),
            });
         }
     }

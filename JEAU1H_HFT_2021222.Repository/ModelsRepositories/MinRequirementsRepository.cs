@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JEAU1H_HFT_2021222.Repository
 {
-    class MinRequirementsRepository : Repository<MinRequirements>, IRepository<MinRequirements>
+    public class MinRequirementsRepository : Repository<MinRequirements>, IRepository<MinRequirements>
     {
         public MinRequirementsRepository(VideoGamesDbContext ctx) : base(ctx)
         {

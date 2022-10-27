@@ -62,23 +62,49 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
         }
-        public IEnumerable<IGrouping<string, Game>> GamesWithStudios()
+        public List<GamewithStudi> GamesWithStudios()
         {
-            var groupbystudios =
-            from games in repo.ReadAll()
-            group games by studrepo.Read(games.StudioId).Name into newGroup
-            orderby newGroup.Key
-            select newGroup;
-            return groupbystudios;
+            var games = repo.ReadAll();
+            
+            List<GamewithStudi> a = new List<GamewithStudi>();
+            foreach(var game in games)
+            {
+                a.Add(new GamewithStudi(game, studrepo.Read(game.StudioId)));
+            }
+            return a;
         }
-        public IEnumerable<IGrouping<MinRequirements, Game>> GamesWithRequirements()
+        public List<GamewithMinreq> GamesWithRequirements()
         {
-            var groupbystudios =
-            from games in repo.ReadAll()
-            group games by minrepo.Read(games.ReqId) into newGroup
-            orderby newGroup.Key
-            select newGroup;
-            return groupbystudios;
+            var games = repo.ReadAll();
+
+            List<GamewithMinreq> a = new List<GamewithMinreq>();
+            foreach (var game in games)
+            {
+                a.Add(new GamewithMinreq(game, minrepo.Read(game.StudioId)));
+            }
+            return a;
+        }
+
+        public class GamewithStudi
+        {
+            public Game g;
+            public Studio s;
+            public GamewithStudi(Game g, Studio s)
+            {
+                this.g = g;
+                this.s = s;
+            }
+        }
+        public class GamewithMinreq
+        {
+            public Game g;
+            public MinRequirements r;
+            public GamewithMinreq(Game g, MinRequirements r)
+            {
+                this.g = g;
+                this.r = r;
+            }
         }
     }
 }
+
