@@ -84,6 +84,29 @@ namespace JEAU1H_HFT_2021222.Logic
             }
             return a;
         }
+        public List<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
+        {
+            var games = repo.ReadAll();
+
+            List<GamewithStudioandMinreq> a = new List<GamewithStudioandMinreq>();
+            foreach (var game in games)
+            {
+                a.Add(new GamewithStudioandMinreq(game, studrepo.Read(game.StudioId), minrepo.Read(game.StudioId)));
+            }
+            return a;
+        }
+        public class GamewithStudioandMinreq
+        {
+            public Game g;
+            public Studio s;
+            public MinRequirements r;
+            public GamewithStudioandMinreq(Game g, Studio s,  MinRequirements r)
+            {
+                this.g = g;
+                this.s = s;
+                this.r = r;
+            }
+        }
 
         public class GamewithStudi
         {
