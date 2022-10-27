@@ -38,5 +38,9 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             this.repo.Update(item);
         }
+        public List<Game> ReleaseYearSearch(string year)
+        {
+            return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
+        }
     }
 }
