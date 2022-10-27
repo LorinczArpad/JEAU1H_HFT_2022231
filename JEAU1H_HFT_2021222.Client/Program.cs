@@ -9,6 +9,7 @@ using System.Threading;
 
 namespace JEAU1H_HFT_2021222.Client
 {
+   
     class Program
     {
         static GameLogic gamelogic;
@@ -17,6 +18,7 @@ namespace JEAU1H_HFT_2021222.Client
        
         static void Main(string[] args)
         {
+            
             var ctx = new VideoGamesDbContext();
             var gamerepo = new GameRepository(ctx);
             var minrepo = new MinRequirementsRepository(ctx);
@@ -25,16 +27,7 @@ namespace JEAU1H_HFT_2021222.Client
             minlogic = new MinRequirementsLogic(minrepo);
             studlogic = new StudioLogic(studrepo);
 
-            /*
-           IEnumerable<GameLogic.GamewithMinreq> GamesWithRequirements();
-           
-           
-         
-           
-
-
-
-           */
+        #region Menus
             //list menu in gaes
             var gameslistmenu = new ConsoleMenu(args, level: 2)
                 .Add("ListGames", () => List("Games"))
@@ -77,10 +70,10 @@ namespace JEAU1H_HFT_2021222.Client
                 .Add("MinRequirements", () => MinRequirementssubmenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
             menu.Show();
-            
+            #endregion
 
         }
-       
+        #region Functions
         static void Delete(string name)
         {
             if (name == "Games") { 
@@ -371,5 +364,7 @@ namespace JEAU1H_HFT_2021222.Client
             }
             Thread.Sleep(3500);
         }
+        #endregion
     }
+
 }
