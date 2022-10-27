@@ -1,0 +1,17 @@
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Logic.deps.json
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Logic.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\ref\JEAU1H_HFT_2021222.Logic.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Logic.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Models.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Repository.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Models.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\bin\Debug\net5.0\JEAU1H_HFT_2021222.Repository.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.csproj.AssemblyReference.cache
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.AssemblyInfoInputs.cache
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.AssemblyInfo.cs
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.csproj.CoreCompileInputs.cache
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.csproj.CopyComplete
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\ref\JEAU1H_HFT_2021222.Logic.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Logic\obj\Debug\net5.0\JEAU1H_HFT_2021222.Logic.pdb

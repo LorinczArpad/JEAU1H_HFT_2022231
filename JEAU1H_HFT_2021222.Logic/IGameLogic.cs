@@ -7,9 +7,9 @@ namespace JEAU1H_HFT_2021222.Logic
     {
         void Create(Game item);
         void Delete(int id);
-        List<GameLogic.GamewithMinreq> GamesWithRequirements();
-        List<GameLogic.GamewithStudi> GamesWithStudios();
-        List<GameLogic.GamewithStudioandMinreq> GamesWithStudiosAndRequirements();
+        IEnumerable<GameLogic.GamewithMinreq> GamesWithRequirements();
+        IEnumerable<GameLogic.GamewithStudi> GamesWithStudios();
+        IEnumerable<GameLogic.GamewithStudioandMinreq> GamesWithStudiosAndRequirements();
         IEnumerable<Game> GamesWithThiStudio(string name);
         Game Read(int id);
         IEnumerable<Game> ReadAll();

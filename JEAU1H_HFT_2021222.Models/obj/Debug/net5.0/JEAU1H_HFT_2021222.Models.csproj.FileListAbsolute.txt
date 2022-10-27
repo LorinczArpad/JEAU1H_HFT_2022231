@@ -1,0 +1,12 @@
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\bin\Debug\net5.0\JEAU1H_HFT_2021222.Models.deps.json
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\bin\Debug\net5.0\JEAU1H_HFT_2021222.Models.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\bin\Debug\net5.0\ref\JEAU1H_HFT_2021222.Models.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\bin\Debug\net5.0\JEAU1H_HFT_2021222.Models.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.AssemblyInfoInputs.cache
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.AssemblyInfo.cs
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.csproj.CoreCompileInputs.cache
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\ref\JEAU1H_HFT_2021222.Models.dll
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.csproj.AssemblyReference.cache

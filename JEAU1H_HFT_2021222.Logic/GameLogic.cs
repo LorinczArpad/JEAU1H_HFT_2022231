@@ -58,11 +58,11 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             this.repo.Update(item);
         }
-        public List<Game> ReleaseYearSearch(string year)
+        public IEnumerable<Game> ReleaseYearSearch(string year)
         {
             return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
         }
-        public List<GamewithStudi> GamesWithStudios()
+        public IEnumerable<GamewithStudi> GamesWithStudios()
         {
             var games = repo.ReadAll();
 
@@ -73,7 +73,7 @@ namespace JEAU1H_HFT_2021222.Logic
             }
             return a;
         }
-        public List<GamewithMinreq> GamesWithRequirements()
+        public IEnumerable<GamewithMinreq> GamesWithRequirements()
         {
             var games = repo.ReadAll();
 
@@ -84,7 +84,7 @@ namespace JEAU1H_HFT_2021222.Logic
             }
             return a;
         }
-        public List<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
+        public IEnumerable<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
         {
             var games = repo.ReadAll();
 
