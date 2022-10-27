@@ -62,11 +62,20 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
         }
-        public IEnumerable<IGrouping<Studio, Game>> GamesWithStudios()
+        public IEnumerable<IGrouping<string, Game>> GamesWithStudios()
         {
             var groupbystudios =
             from games in repo.ReadAll()
-            group games by studrepo.Read(games.StudioId) into newGroup
+            group games by studrepo.Read(games.StudioId).Name into newGroup
+            orderby newGroup.Key
+            select newGroup;
+            return groupbystudios;
+        }
+        public IEnumerable<IGrouping<MinRequirements, Game>> GamesWithRequirements()
+        {
+            var groupbystudios =
+            from games in repo.ReadAll()
+            group games by minrepo.Read(games.ReqId) into newGroup
             orderby newGroup.Key
             select newGroup;
             return groupbystudios;
