@@ -8,6 +8,26 @@ namespace JEAU1H_HFT_2021222.Logic
     public class GameLogic 
     {
         IRepository<Game> repo;
+        IRepository<MinRequirements> minrepo;
+        IRepository<Studio> studrepo;
+
+       
+        public GameLogic(IRepository<Game> repo, IRepository<MinRequirements> minrepo)
+        {
+            this.repo = repo;
+            this.minrepo = minrepo;
+        }
+        public GameLogic(IRepository<Game> repo, IRepository<Studio> studrepo)
+        {
+            this.repo = repo;
+            this.studrepo = studrepo;
+        }
+        public GameLogic(IRepository<Game> repo, IRepository<Studio> studrepo, IRepository<MinRequirements> minrepo)
+        {
+            this.repo = repo;
+            this.studrepo = studrepo;
+            this.minrepo = minrepo;
+        }
 
         public GameLogic(IRepository<Game> repo)
         {
