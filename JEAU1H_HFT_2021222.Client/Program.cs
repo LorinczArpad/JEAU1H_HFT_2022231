@@ -18,7 +18,10 @@ namespace JEAU1H_HFT_2021222.Client
             var logic = new GameLogic(gamerepo,studrepo,minrepo);
             
            
-           
+            foreach(var item in logic.GamesWithThiStudio("Ubisoft"))
+            {
+                Console.WriteLine(item.Name);
+            }
         }
     }
 }
