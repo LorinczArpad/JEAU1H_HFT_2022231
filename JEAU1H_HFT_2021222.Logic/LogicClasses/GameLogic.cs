@@ -60,7 +60,7 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public Game Read(int id)
         {
-            if (repo.ReadAll().Last().GameID > id)
+            if (repo.ReadAll().Last().GameID >= id)
             {
                 return this.repo.Read(id);
             }
