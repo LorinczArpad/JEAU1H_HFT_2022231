@@ -10,10 +10,11 @@ namespace JEAU1H_HFT_2021222.Logic
         IEnumerable<GameLogic.GamewithMinreq> GamesWithRequirements();
         IEnumerable<GameLogic.GamewithStudi> GamesWithStudios();
         IEnumerable<GameLogic.GamewithStudioandMinreq> GamesWithStudiosAndRequirements();
-        IEnumerable<Game> GamesWithThiStudio(string name);
+        IEnumerable<Game> GamesWithThisCPU(string cpu);
+        IEnumerable<Game> GamesWithThisStudio(string name);
         Game Read(int id);
         IEnumerable<Game> ReadAll();
-        List<Game> ReleaseYearSearch(string year);
+        IEnumerable<Game> ReleaseYearSearch(string year);
         void Update(Game item);
     }
 }

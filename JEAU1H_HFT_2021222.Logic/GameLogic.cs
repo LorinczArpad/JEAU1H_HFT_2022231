@@ -95,9 +95,13 @@ namespace JEAU1H_HFT_2021222.Logic
             }
             return a;
         }
-        public IEnumerable<Game> GamesWithThiStudio(string name)
+        public IEnumerable<Game> GamesWithThisStudio(string name)
         {
             return repo.ReadAll().Where(x => studrepo.Read(x.StudioId).Name == name);
+        }
+        public IEnumerable<Game> GamesWithThisCPU(string cpu)
+        {
+            return repo.ReadAll().Where(x => minrepo.Read(x.ReqId).CPU == cpu);
         }
         public class GamewithStudioandMinreq
         {
