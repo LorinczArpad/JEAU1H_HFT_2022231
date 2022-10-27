@@ -1,7 +1,5 @@
 ﻿using JEAU1H_HFT_2021222.Models;
 using System.Collections.Generic;
-using System.Linq;
-using static JEAU1H_HFT_2021222.Logic.GameLogic;
 
 namespace JEAU1H_HFT_2021222.Logic
 {
@@ -9,8 +7,10 @@ namespace JEAU1H_HFT_2021222.Logic
     {
         void Create(Game item);
         void Delete(int id);
-        List<GamewithMinreq> GamesWithRequirements();
-        List<GamewithStudi> GamesWithStudios();
+        List<GameLogic.GamewithMinreq> GamesWithRequirements();
+        List<GameLogic.GamewithStudi> GamesWithStudios();
+        List<GameLogic.GamewithStudioandMinreq> GamesWithStudiosAndRequirements();
+        IEnumerable<Game> GamesWithThiStudio(string name);
         Game Read(int id);
         IEnumerable<Game> ReadAll();
         List<Game> ReleaseYearSearch(string year);

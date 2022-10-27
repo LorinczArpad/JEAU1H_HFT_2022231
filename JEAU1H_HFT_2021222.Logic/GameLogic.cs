@@ -65,9 +65,9 @@ namespace JEAU1H_HFT_2021222.Logic
         public List<GamewithStudi> GamesWithStudios()
         {
             var games = repo.ReadAll();
-            
+
             List<GamewithStudi> a = new List<GamewithStudi>();
-            foreach(var game in games)
+            foreach (var game in games)
             {
                 a.Add(new GamewithStudi(game, studrepo.Read(game.StudioId)));
             }
@@ -104,7 +104,7 @@ namespace JEAU1H_HFT_2021222.Logic
             public Game g;
             public Studio s;
             public MinRequirements r;
-            public GamewithStudioandMinreq(Game g, Studio s,  MinRequirements r)
+            public GamewithStudioandMinreq(Game g, Studio s, MinRequirements r)
             {
                 this.g = g;
                 this.s = s;
