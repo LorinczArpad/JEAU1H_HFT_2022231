@@ -36,13 +36,21 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public void Create(Game item)
         {
-            if (int.Parse(item.Pyear) > 1980)
+            if (int.Parse(item.Pyear) < 1980 )
             {
-                this.repo.Create(item);
+                throw new ArgumentException("The game is too old");
+            }
+            else if(!studrepo.ReadAll().Any(x => x.StudioID == item.StudioId) )
+            {
+                throw new ArgumentException("StudioID was not found");
+            }
+            else if (!minrepo.ReadAll().Any(x => x.ReqId == item.ReqId))
+            {
+                throw new ArgumentException("RequiremetsID was not found");
             }
             else
             {
-                throw new ArgumentException("This game is too old");
+                this.repo.Create(item);
             }
         }
 

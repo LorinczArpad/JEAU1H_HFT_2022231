@@ -135,9 +135,14 @@ namespace JEAU1H_HFT_2021222.Client
                 var reqid = int.Parse(Console.ReadLine());
                 
                 Game g = new Game(nameg, gamelogic.ReadAll().Last().GameID + 1, year, studid, reqid);
-                
-                gamelogic.Create(g);
-              
+                try
+                {
+                    gamelogic.Create(g);
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                Thread.Sleep(2500);
             }
             if (name == "Studios")
             {
