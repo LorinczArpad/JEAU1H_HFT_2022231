@@ -28,5 +28,14 @@ namespace JEAU1H_HFT_2021222.Models
             this.StudioID = id;
             this.CEOName = ceo;
         }
+        public override bool Equals(object obj)
+        {
+            Studio b = obj as Studio;
+            if(b == null)
+            {
+                return false;
+            }
+            return (b.CEOName == this.CEOName && b.Name == this.Name && this.StudioID == b.StudioID);
+        }
     }
 }

@@ -143,6 +143,15 @@ namespace JEAU1H_HFT_2021222.Logic
                 this.s = s;
                 this.r = r;
             }
+            public override bool Equals(object obj)
+            {
+                GamewithStudioandMinreq b = obj as GamewithStudioandMinreq;
+                if(b == null)
+                {
+                    return false;
+                }
+                return (this.g.Equals(b.g) && this.r.Equals(b.r) && this.s.Equals(b.s));
+            }
         }
 
         public class GamewithStudi
@@ -154,6 +163,15 @@ namespace JEAU1H_HFT_2021222.Logic
                 this.g = g;
                 this.s = s;
             }
+            public override bool Equals(object obj)
+            {
+                GamewithStudi b = obj as GamewithStudi;
+                if(b == null)
+                {
+                    return false;
+                }
+                return (this.g.Equals(b.g)&& this.s.Equals(b.s));
+            }
         }
         public class GamewithMinreq
         {
@@ -164,6 +182,16 @@ namespace JEAU1H_HFT_2021222.Logic
                 this.g = g;
                 this.r = r;
             }
+            public override bool Equals(object obj)
+            {
+                GamewithMinreq b = obj as GamewithMinreq;
+                if(b == null)
+                {
+                    return false;
+                }
+                return (this.g.Equals(b.g)&&this.r.Equals(b.r));
+            }
+
         }
     }
 }

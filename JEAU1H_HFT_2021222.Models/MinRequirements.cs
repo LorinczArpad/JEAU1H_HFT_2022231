@@ -37,5 +37,14 @@ namespace JEAU1H_HFT_2021222.Models
             this.CPU = cpu;
             this.GPU = gpu;
         }
+        public override bool Equals(object obj)
+        {
+            MinRequirements b = obj as MinRequirements;
+            if(b == null)
+            {
+                return false;
+            }
+            return (b.CPU == this.CPU && b.GPU == this.GPU && b.ReqId == this.ReqId);
+        }
     }
 }

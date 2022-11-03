@@ -1,0 +1,78 @@
+﻿using JEAU1H_HFT_2021222.Logic;
+using JEAU1H_HFT_2021222.Models;
+using JEAU1H_HFT_2021222.Repository;
+using Moq;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JEAU1H_HFT_2021222.Test
+{
+    [TestFixture]
+    public class TesterClass
+    {
+        static GameLogic gm;
+        static StudioLogic st;
+        static MinRequirementsLogic mr;
+        static Mock<IRepository<Game>> GameRepository;
+        static Mock<IRepository<Studio>> StudioRepository;
+        static Mock<IRepository<MinRequirements>> MinRequirementsRepository;
+        [SetUp]
+        public void Init()
+        {
+           GameRepository = new Mock<IRepository<Game>>();
+            //Setups
+            GameRepository.Setup(x => x.ReadAll()).Returns(new List<Game>() {
+                new Game("FarCry1", 1, "2008", 1,1),
+                new Game("FarCry2", 2, "2008", 1,2),
+                new Game("FarCry3", 3, "2012", 1,3),
+                new Game("Dying Light", 4, "2015",2,4),
+            }.AsQueryable());
+            GameRepository.Setup(x => x.Read(1)).Returns(new Game("FarCry1", 1, "2008", 1, 1));
+            GameRepository.Setup(x => x.Read(2)).Returns(new Game("FarCry2", 2, "2008", 1, 2));
+            GameRepository.Setup(x => x.Read(3)).Returns(new Game("FarCry3", 3, "2012", 1, 3));
+            GameRepository.Setup(x => x.Read(4)).Returns(new Game("Dying Light", 4, "2015", 2, 4));
+
+            StudioRepository = new Mock<IRepository<Studio>>();
+            //Setups
+            StudioRepository.Setup(x => x.ReadAll()).Returns(new List<Studio>() {
+               new Studio("Ubisoft",1,"Yves Guillemot"),
+                new Studio("Square Enix",2,"Yosuke Matsuda")
+            }.AsQueryable());
+            StudioRepository.Setup(x => x.Read(1)).Returns(new Studio("Ubisoft", 1, "Yves Guillemot"));
+            StudioRepository.Setup(x => x.Read(2)).Returns(new Studio("Square Enix", 2, "Yosuke Matsuda"));
+            MinRequirementsRepository = new Mock<IRepository<MinRequirements>>();
+            //Setups
+            MinRequirementsRepository.Setup(x => x.ReadAll()).Returns(new List<MinRequirements>() {
+               new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060"),
+                new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080"),
+                new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti"),
+                new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600"),
+            }.AsQueryable());
+            MinRequirementsRepository.Setup(x => x.Read(1)).Returns(new MinRequirements(1, "Intel Core i7-7820X Processor", "GeForce RTX 2060"));
+            MinRequirementsRepository.Setup(x => x.Read(2)).Returns(new MinRequirements(2, "AMD Ryzen 7 5800H", "GeForce GTX 1080"));
+            MinRequirementsRepository.Setup(x => x.Read(3)).Returns(new MinRequirements(3, "AMD Ryzen Threadripper 2950X", "GeForce GTX 1070 Ti"));
+            MinRequirementsRepository.Setup(x => x.Read(4)).Returns(new MinRequirements(4, "Intel Core i7-10700F Processor", "Radeon RX 6600"));
+            gm = new GameLogic(GameRepository.Object,StudioRepository.Object,MinRequirementsRepository.Object);
+           
+        }
+
+        [Test]
+        public void GameCreateTestWithValidData()
+        {
+            Game GoatSimulator = new Game("GoatSimulator", 5, "2014", 1, 1);
+            gm.Create(GoatSimulator);
+            GameRepository.Verify(x => x.Create(GoatSimulator), Times.Once);
+        }
+        [Test]
+        public void GameCreateTestWithInValidData()
+        {
+            Game GoatSimulator = new Game("GoatSimulator", 30110, "2014", 301, 30210);
+            
+            Assert.That(() => gm.Create(GoatSimulator), Throws.TypeOf<ArgumentException>());
+        }
+    }
+}
