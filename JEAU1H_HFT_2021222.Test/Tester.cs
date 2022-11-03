@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static JEAU1H_HFT_2021222.Logic.GameLogic;
 
 namespace JEAU1H_HFT_2021222.Test
 {
@@ -103,6 +104,83 @@ namespace JEAU1H_HFT_2021222.Test
             MinRequirements req = new MinRequirements(5, "SimpleCPUButLongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer", "SimpleGPU");
 
             Assert.That(() => mr.Create(req), Throws.TypeOf<ArgumentException>());
+        }
+        [Test]
+        public void GamesWithStudiosTest()
+        {
+            IEnumerable<GamewithStudi> current = gm.GamesWithStudios();
+            IEnumerable<GamewithStudi> expected = new List<GamewithStudi>()
+            {
+                new GamewithStudi(new Game("FarCry1", 1, "2008", 1,1),new Studio("Ubisoft",1,"Yves Guillemot")),
+                new GamewithStudi(new Game("FarCry2", 2, "2008", 1,2),new Studio("Ubisoft",1,"Yves Guillemot")),
+                new GamewithStudi(new Game("FarCry3", 3, "2012", 1,3),new Studio("Ubisoft",1,"Yves Guillemot")),
+                new GamewithStudi(new Game("Dying Light", 4, "2015",2,4),new Studio("Square Enix",2,"Yosuke Matsuda")),
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void GamesWithRequirementsTest()
+        {
+            IEnumerable<GamewithMinreq> current = gm.GamesWithRequirements();
+            IEnumerable<GamewithMinreq> expected = new List<GamewithMinreq>()
+            {
+                new GamewithMinreq(new Game("FarCry1", 1, "2008", 1,1),new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060")),
+                new GamewithMinreq(new Game("FarCry2", 2, "2008", 1,2),new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080")),
+                new GamewithMinreq(new Game("FarCry3", 3, "2012", 1,3),new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti")),
+                new GamewithMinreq(new Game("Dying Light", 4, "2015",2,4),new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600")),
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void GamesWithStudiosAndRequirementsTest()
+        {
+            IEnumerable<GamewithStudioandMinreq> current = gm.GamesWithStudiosAndRequirements();
+            IEnumerable<GamewithStudioandMinreq> expected = new List<GamewithStudioandMinreq>()
+            {
+                new GamewithStudioandMinreq(new Game("FarCry1", 1, "2008", 1,1),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060")),
+                new GamewithStudioandMinreq(new Game("FarCry2", 2, "2008", 1,2),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080")),
+                new GamewithStudioandMinreq(new Game("FarCry3", 3, "2012", 1,3),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti")),
+                new GamewithStudioandMinreq(new Game("Dying Light", 4, "2015",2,4),new Studio("Square Enix",2,"Yosuke Matsuda"),new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600")),
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void GamesWithThisStudioTest()
+        {
+            IEnumerable<Game> current = gm.GamesWithThisStudio("Square Enix");
+            IEnumerable<Game> expected = new List<Game>()
+            {
+                new Game("Dying Light", 4, "2015",2,4)
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void GamesWithThisCPUTest()
+        {
+            IEnumerable<Game> current = gm.GamesWithThisCPU("Intel Core i7-10700F Processor");
+            IEnumerable<Game> expected = new List<Game>()
+            {
+                new Game("Dying Light", 4, "2015",2,4)
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void ReleaseYearSearchTest()
+        {
+            IEnumerable<Game> current = gm.ReleaseYearSearch("2008");
+            IEnumerable<Game> expected = new List<Game>()
+            {
+                new Game("FarCry1", 1, "2008", 1,1),
+                new Game("FarCry2", 2, "2008", 1, 2),
+            };
+            Assert.That(current, Is.EqualTo(expected));
+        }
+        [Test]
+        public void GameReadTest()
+        {
+           
+
+            Assert.That(() => gm.Read(2020), Throws.TypeOf<ArgumentException>());
         }
     }
 }

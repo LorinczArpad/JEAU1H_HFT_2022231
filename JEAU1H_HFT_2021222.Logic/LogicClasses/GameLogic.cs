@@ -109,7 +109,7 @@ namespace JEAU1H_HFT_2021222.Logic
             List<GamewithMinreq> a = new List<GamewithMinreq>();
             foreach (var game in games)
             {
-                a.Add(new GamewithMinreq(game, minrepo.Read(game.StudioId)));
+                a.Add(new GamewithMinreq(game, minrepo.Read(game.ReqId)));
             }
             return a;
         }
@@ -120,7 +120,7 @@ namespace JEAU1H_HFT_2021222.Logic
             List<GamewithStudioandMinreq> a = new List<GamewithStudioandMinreq>();
             foreach (var game in games)
             {
-                a.Add(new GamewithStudioandMinreq(game, studrepo.Read(game.StudioId), minrepo.Read(game.StudioId)));
+                a.Add(new GamewithStudioandMinreq(game, studrepo.Read(game.StudioId), minrepo.Read(game.ReqId)));
             }
             return a;
         }
