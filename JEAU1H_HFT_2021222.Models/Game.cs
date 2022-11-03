@@ -38,5 +38,22 @@ namespace JEAU1H_HFT_2021222.Models
             this.StudioId = studioId;
             this.ReqId = reqid;
         }
+        public override bool Equals(object obj)
+        {
+            Game b = obj as Game;
+            if(b == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (this.Name==b.Name)&&(this.Pyear==b.Pyear)&&(this.ReqId==b.ReqId)&&(this.StudioId==b.StudioId)&&(this.GameID== b.GameID);
+            }
+
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.GameID, this.Name, this.Pyear, this.ReqId, this.StudioId);
+        }
     }
 }
