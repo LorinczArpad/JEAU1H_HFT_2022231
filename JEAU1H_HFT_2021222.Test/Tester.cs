@@ -57,6 +57,8 @@ namespace JEAU1H_HFT_2021222.Test
             MinRequirementsRepository.Setup(x => x.Read(3)).Returns(new MinRequirements(3, "AMD Ryzen Threadripper 2950X", "GeForce GTX 1070 Ti"));
             MinRequirementsRepository.Setup(x => x.Read(4)).Returns(new MinRequirements(4, "Intel Core i7-10700F Processor", "Radeon RX 6600"));
             gm = new GameLogic(GameRepository.Object,StudioRepository.Object,MinRequirementsRepository.Object);
+            st = new StudioLogic(StudioRepository.Object);
+            mr = new MinRequirementsLogic(MinRequirementsRepository.Object);
            
         }
 
@@ -73,6 +75,34 @@ namespace JEAU1H_HFT_2021222.Test
             Game GoatSimulator = new Game("GoatSimulator", 30110, "2014", 301, 30210);
             
             Assert.That(() => gm.Create(GoatSimulator), Throws.TypeOf<ArgumentException>());
+        }
+        [Test]
+        public void StudioCreateTestWithValidData()
+        {
+            Studio Blizzard = new Studio("Blizzard", 3, "Mr X");
+            st.Create(Blizzard);
+            StudioRepository.Verify(x => x.Create(Blizzard), Times.Once);
+        }
+        [Test]
+        public void StudioCreateTestWithInValidData()
+        {
+            Studio Blizzard = new Studio();
+
+            Assert.That(() => st.Create(Blizzard), Throws.TypeOf<ArgumentException>());
+        }
+        [Test]
+        public void MinReqCreateTestWithValidData()
+        {
+            MinRequirements req = new MinRequirements(5,"SimpleCPU","SimpleGPU");
+            mr.Create(req);
+            MinRequirementsRepository.Verify(x => x.Create(req), Times.Once);
+        }
+        [Test]
+        public void MinReqCreateTestWithInValidData()
+        {
+            MinRequirements req = new MinRequirements(5, "SimpleCPUButLongeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer", "SimpleGPU");
+
+            Assert.That(() => mr.Create(req), Throws.TypeOf<ArgumentException>());
         }
     }
 }
