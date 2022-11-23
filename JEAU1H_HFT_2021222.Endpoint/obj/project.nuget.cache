@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "kI3CWc0N7kBOq9LZ0h2YOjq4iH//KteZMuBABOZK25uJbWiTMZOG5dzUd2TBbqbCSZO2LEGPJxjElp/cLW6Dfw==",
+  "dgSpecHash": "85LDH6lbvBHpALEwGlwj9Cq5S5yde22G6PNY4ZKVTqAM58WF4Avt3ej7nJCsuDgSB4Grqa5+fri52erLFVbvvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Endpoint\\JEAU1H_HFT_2021222.Endpoint.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\dudu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\dudu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
   "logs": []
 }

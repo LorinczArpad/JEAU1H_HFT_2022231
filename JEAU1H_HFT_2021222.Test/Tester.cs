@@ -62,7 +62,7 @@ namespace JEAU1H_HFT_2021222.Test
             mr = new MinRequirementsLogic(MinRequirementsRepository.Object);
            
         }
-
+        #region CreateTests
         [Test]
         public void GameCreateTestWithValidData()
         {
@@ -105,6 +105,8 @@ namespace JEAU1H_HFT_2021222.Test
 
             Assert.That(() => mr.Create(req), Throws.TypeOf<ArgumentException>());
         }
+        #endregion
+        #region Non-Crud Test
         [Test]
         public void GamesWithStudiosTest()
         {
@@ -175,6 +177,8 @@ namespace JEAU1H_HFT_2021222.Test
             };
             Assert.That(current, Is.EqualTo(expected));
         }
+        #endregion
+        #region ReadTest
         [Test]
         public void GameReadTest()
         {
@@ -182,5 +186,6 @@ namespace JEAU1H_HFT_2021222.Test
 
             Assert.That(() => gm.Read(2020), Throws.TypeOf<ArgumentException>());
         }
+        #endregion
     }
 }
