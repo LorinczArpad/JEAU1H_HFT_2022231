@@ -1,15 +1,15 @@
 ﻿using JEAU1H_HFT_2021222.Logic;
+using JEAU1H_HFT_2021222.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-
+using static JEAU1H_HFT_2021222.Logic.GameLogic;
 
 namespace JEAU1H_HFT_2021222.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class GameController : ControllerBase
     {
@@ -21,34 +21,66 @@ namespace JEAU1H_HFT_2021222.Endpoint.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Game> ReadAll()
         {
-            return new string[] { "value1", "value2" };
+            return this.Gamelogic.ReadAll();
         }
 
-        
+
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Game Read(int id)
         {
-            return "value";
+            return this.Gamelogic.Read(id);
         }
 
-        
+
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Create([FromBody] Game game)
         {
+            this.Gamelogic.Create(game);
         }
 
-        
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        [HttpPut]
+        public void Put([FromBody] Game game)
         {
+            this.Gamelogic.Update(game);
         }
 
-       
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            this.Gamelogic.Delete(id);
         }
+        /*
+        // non cruds
+        [HttpGet]
+        public IEnumerable<GamewithMinreq> GamesWithRequirements()
+        {
+            return this.Gamelogic.GamesWithRequirements();
+        }
+        
+        [HttpGet]
+        public IEnumerable<GamewithStudi> GamesWithStudios()
+        {
+            return this.Gamelogic.GamesWithStudios();
+        }
+        [HttpGet]
+        public IEnumerable<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
+        {
+            return this.Gamelogic.GamesWithStudiosAndRequirements();
+        }
+        [HttpGet("{name}")]
+        public IEnumerable<Game> GamesWithThisStudio(string name)
+        {
+            return this.Gamelogic.GamesWithThisStudio(name);
+        }
+        [HttpGet("{cpu}")]
+        public IEnumerable<Game> GamesWithThisCPU(string cpu)
+        {
+            return this.Gamelogic.GamesWithThisCPU(cpu);
+        }
+        */
     }
 }

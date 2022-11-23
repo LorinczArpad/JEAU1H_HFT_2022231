@@ -28,8 +28,8 @@ namespace JEAU1H_HFT_2021222.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddTransient<VideoGamesDbContext>();
+            services.AddSingleton<VideoGamesDbContext>();
+            
 
             services.AddTransient<IRepository<Game>, GameRepository>();
             services.AddTransient<IRepository<MinRequirements>, MinRequirementsRepository>();
