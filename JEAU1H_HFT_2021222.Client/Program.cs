@@ -1,7 +1,7 @@
 ﻿using ConsoleTools;
-using JEAU1H_HFT_2021222.Logic;
+
 using JEAU1H_HFT_2021222.Models;
-using JEAU1H_HFT_2021222.Repository;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +12,13 @@ namespace JEAU1H_HFT_2021222.Client
    
     class Program
     {
-        static GameLogic gamelogic;
-        static MinRequirementsLogic minlogic;
-        static StudioLogic studlogic;
+       static RestService rest;
        
         static void Main(string[] args)
         {
+            rest = new RestService("http://localhost:60949/", "game");
             
-            var ctx = new VideoGamesDbContext();
-            var gamerepo = new GameRepository(ctx);
-            var minrepo = new MinRequirementsRepository(ctx);
-            var studrepo = new StudioRepository(ctx);
-            gamelogic = new GameLogic(gamerepo, studrepo, minrepo);
-            minlogic = new MinRequirementsLogic(minrepo);
-            studlogic = new StudioLogic(studrepo);
-
+            
         #region Menus
             //list menu in gaes
             var gameslistmenu = new ConsoleMenu(args, level: 2)
@@ -71,9 +63,12 @@ namespace JEAU1H_HFT_2021222.Client
                 .Add("Exit", ConsoleMenu.Close);
             menu.Show();
             #endregion
+            
 
         }
+        
         #region Functions
+        
         static void Delete(string name)
         {
             if (name == "Games") { 
@@ -81,7 +76,7 @@ namespace JEAU1H_HFT_2021222.Client
             var id = int.Parse(Console.ReadLine());
             try
             {
-               gamelogic.Delete(id);
+                    rest.Delete(id, "Game");
             }
             catch (Exception e)
             {
@@ -96,7 +91,7 @@ namespace JEAU1H_HFT_2021222.Client
                 var id = int.Parse(Console.ReadLine());
                 try
                 {
-                    studlogic.Delete(id);
+                    rest.Delete(id, "Studio");
                 }
                 catch (Exception e)
                 {
@@ -111,7 +106,7 @@ namespace JEAU1H_HFT_2021222.Client
                 var id = int.Parse(Console.ReadLine());
                 try
                 {
-                    minlogic.Delete(id);
+                    rest.Delete(id, "MinRequirements");
                 }
                 catch (Exception e)
                 {
@@ -134,10 +129,10 @@ namespace JEAU1H_HFT_2021222.Client
                 Console.WriteLine("Add the MinRequimentId: ");
                 var reqid = int.Parse(Console.ReadLine());
                 
-                Game g = new Game(nameg, gamelogic.ReadAll().Last().GameID + 1, year, studid, reqid);
+                Game g = new Game(nameg, rest.Get<Game>("Game").Last().GameID + 1, year, studid, reqid);
                 try
                 {
-                    gamelogic.Create(g);
+                    rest.Post<Game>(g, "Game");
                 }catch(Exception e)
                 {
                     Console.WriteLine(e.Message);
@@ -152,9 +147,9 @@ namespace JEAU1H_HFT_2021222.Client
                 var ceo = Console.ReadLine();
                 
 
-                Studio g = new Studio(nameg, studlogic.ReadAll().Last().StudioID + 1, ceo);
+                Studio g = new Studio(nameg, rest.Get<Studio>("Studio").Last().StudioID + 1, ceo);
 
-                studlogic.Create(g);
+                rest.Post<Studio>(g,"Studio");
 
             }
             if (name == "Requirements")
@@ -165,9 +160,9 @@ namespace JEAU1H_HFT_2021222.Client
                 var cpu = Console.ReadLine();
 
 
-                MinRequirements g = new MinRequirements(minlogic.ReadAll().Last().ReqId + 1, cpu,gpu);
+                MinRequirements g = new MinRequirements(rest.Get<MinRequirements>("MinRequirements").Last().ReqId + 1, cpu,gpu);
 
-                minlogic.Create(g);
+                rest.Post<MinRequirements>(g, "MinRequirements");
 
             }
         }
@@ -175,7 +170,7 @@ namespace JEAU1H_HFT_2021222.Client
         {
             if(name == "Games")
             {
-                foreach(var item in gamelogic.ReadAll())
+                foreach(var item in rest.Get<Game>("Game"))
                 {
                     Console.WriteLine($"{item.Name}| {item.Pyear}|RequirementsID: | {item.ReqId}| StudioID: |{item.StudioId} GameID: |{item.GameID}");
                 }
@@ -184,7 +179,7 @@ namespace JEAU1H_HFT_2021222.Client
             }
             if (name == "Studios")
             {
-                foreach (var item in studlogic.ReadAll())
+                foreach (var item in rest.Get<Studio>("Studio"))
                 {
                     Console.WriteLine($"Studio's name: {item.Name} StudioID: {item.StudioID} CEO's name: {item.CEOName}");
                 }
@@ -193,7 +188,7 @@ namespace JEAU1H_HFT_2021222.Client
             }
             if (name == "Requirements")
             {
-                foreach (var item in minlogic.ReadAll())
+                foreach (var item in rest.Get<MinRequirements>("MinRequirements"))
                 {
                     Console.WriteLine($"ID: {item.ReqId} CPU: {item.CPU} GPU: {item.GPU}");
                 }
@@ -209,7 +204,7 @@ namespace JEAU1H_HFT_2021222.Client
                 var id = int.Parse(Console.ReadLine());
                 try
                 {
-                    var item = gamelogic.Read(id);
+                    var item = rest.Get<Game>(id,"Game");
                     Console.WriteLine($"{item.Name}| {item.Pyear}|RequirementsID: | {item.ReqId}| StudioID: |{item.StudioId} GameID: |{item.GameID}");
                 }
                 catch(Exception e)
@@ -225,7 +220,7 @@ namespace JEAU1H_HFT_2021222.Client
                 var id = int.Parse(Console.ReadLine());
                 try
                 {
-                    var item = studlogic.Read(id);
+                    var item =rest.Get<Studio>(id, "Studio");
                     Console.WriteLine($"Studio's name: {item.Name} StudioID: {item.StudioID} CEO's name: {item.CEOName}");
                 }
                 catch (Exception e)
@@ -241,7 +236,7 @@ namespace JEAU1H_HFT_2021222.Client
                 var id = int.Parse(Console.ReadLine());
                 try
                 {
-                    var item = minlogic.Read(id);
+                    var item = rest.Get<MinRequirements>(id, "MinRequirements");
                     Console.WriteLine($"ID: {item.ReqId} CPU: {item.CPU} GPU: {item.GPU}");
                 }
                 catch (Exception e)
@@ -267,10 +262,10 @@ namespace JEAU1H_HFT_2021222.Client
                 Console.WriteLine("Add the Game's ID");
                 var id = int.Parse(Console.ReadLine());
                 Console.WriteLine("Old Item:");
-                var item = gamelogic.Read(id);
+                var item = rest.Get<Game>(id, "Game");
                 Console.WriteLine($"{item.Name}| {item.Pyear}|RequirementsID: | {item.ReqId}| StudioID: |{item.StudioId} GameID: |{item.GameID}");
-                gamelogic.Update(new Game(nameg, id, year, studid, reqid));
-                var item2 = gamelogic.Read(id);
+                rest.Put<Game>(new Game(nameg, id, year, studid, reqid), "Game");
+                var item2 = rest.Get<Game>(id, "Game");
                 Console.WriteLine("New item: ");
                 Console.WriteLine($"{item2.Name}| {item2.Pyear}|RequirementsID: | {item2.ReqId}| StudioID: |{item2.StudioId} GameID: |{item2.GameID}");
                 Thread.Sleep(3500);
@@ -283,11 +278,11 @@ namespace JEAU1H_HFT_2021222.Client
                 var ceo = Console.ReadLine();
                 Console.WriteLine("Add the StudioID: ");
                 var studid = int.Parse(Console.ReadLine());
-                var item = studlogic.Read(studid);
+                var item = rest.Get<Studio>(studid, "Studio");
                 Console.WriteLine("Old Item:");
                 Console.WriteLine($"Studio's name: {item.Name} CEO's name: {item.CEOName} StudioID: {item.StudioID}");
-                studlogic.Update(new Studio(nameg, studid, ceo));
-                var item2 = studlogic.Read(studid);
+                rest.Put<Studio>(new Studio(nameg, studid, ceo), "Studio");
+                var item2 = rest.Get<Studio>(studid, "Studio");
                 Console.WriteLine($"Studio's name: {item2.Name} CEO's name: {item2.CEOName} StudioID: {item2.StudioID}");
                 Thread.Sleep(3500);
             }
@@ -299,21 +294,22 @@ namespace JEAU1H_HFT_2021222.Client
                 var gpu = Console.ReadLine();
                 Console.WriteLine("ID: ");
                 var id = int.Parse(Console.ReadLine());
-                var item = minlogic.Read(id);
+                var item = rest.Get<MinRequirements>(id, "MinRequirements");
                 Console.WriteLine("Old Item:");
                 Console.WriteLine($"CPU: {item.CPU} GPU: {item.GPU} ID: {item.ReqId}");
-                minlogic.Update(new MinRequirements(id,cpu,gpu));
-                var item2 = minlogic.Read(id);
+                rest.Put<MinRequirements>(new MinRequirements(id, cpu, gpu), "MinRequirements");
+                var item2 = rest.Get<MinRequirements>(id, "MinRequirements");
                 Console.WriteLine($"CPU: {item.CPU} GPU: {item.GPU} ID: {item.ReqId}");
                 Thread.Sleep(3500);
             }
         }
+        
         static void ReleaseYearSearch()
         {
             Console.WriteLine("Give the year that you wanna search for: ");
             var year = Console.ReadLine();
             bool found = false;
-            foreach(var item in gamelogic.ReleaseYearSearch(year))
+            foreach (var item in rest.Get<Game>("Stat/ReleaseYearSearch/"+year))
             {
                 Console.WriteLine($"{item.Name}| {item.Pyear}|RequirementsID: | {item.ReqId}| StudioID: |{item.StudioId} GameID: |{item.GameID}");
                 found = true;
@@ -324,11 +320,12 @@ namespace JEAU1H_HFT_2021222.Client
             }
             Thread.Sleep(2500);
         }
+        
         static void GamesWithStudios()
         {
-            foreach(var item in gamelogic.GamesWithStudios())
+            foreach(var item in rest.Get<String>("Stat/GamesWithStudios"))
             {
-                Console.WriteLine($"{item.g.Name}  {item.s.Name}" );
+                Console.WriteLine($"{item}" );
             }
             Thread.Sleep(2500);
         }
@@ -336,9 +333,9 @@ namespace JEAU1H_HFT_2021222.Client
         {
             Console.WriteLine("Give the required cpu's full name: ");
             var cpu = Console.ReadLine();
-            gamelogic.GamesWithThisCPU(cpu);
+            
             bool found = false;
-            foreach(var item in gamelogic.GamesWithThisCPU(cpu))
+            foreach(var item in rest.Get<Game>("Stat/GamesWithThisCPU/" +cpu))
             {
                 Console.WriteLine(item.Name);
                 found = true;
@@ -351,25 +348,27 @@ namespace JEAU1H_HFT_2021222.Client
         }
         static void GamesWithStudiosAndRequirements()
         {
-            foreach(var item in gamelogic.GamesWithStudiosAndRequirements())
+            foreach(var item in rest.Get<String>("Stat/GamesWithStudiosAndRequirements"))
             {
                 Console.WriteLine("*************************************************************************************************");
-                Console.WriteLine($"Name: {item.g.Name} Year: {item.g.Pyear} GameID: {item.g.GameID} RequirementsID: {item.g.ReqId} StudioID: {item.g.StudioId}\n  MinCPU: {item.r.CPU} MinGPU: {item.r.GPU}\n Studio's CEO's name: {item.s.CEOName} Studio's name:  {item.s.CEOName}");
+                Console.WriteLine($"{item}");
                 Console.WriteLine("*************************************************************************************************");
             }
             Thread.Sleep(4500);
         }
         static void GamesWithRequirements()
         {
-            foreach (var item in gamelogic.GamesWithRequirements())
+            foreach (var item in rest.Get<String>("Stat/GamesWithRequirements"))
             {
                 Console.WriteLine("*************************************************************************************************");
-                Console.WriteLine($"Name: {item.g.Name}   MinCPU: {item.r.CPU} MinGPU: {item.r.GPU}");
+                Console.WriteLine($"{item}");
                 Console.WriteLine("*************************************************************************************************");
             }
             Thread.Sleep(3500);
         }
+        
         #endregion
+        
     }
 
 }

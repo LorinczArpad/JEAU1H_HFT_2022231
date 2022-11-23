@@ -91,36 +91,39 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             return this.repo.ReadAll().Where(x => x.Pyear == year).ToList();
         }
-        public IEnumerable<GamewithStudi> GamesWithStudios()
+        public IEnumerable<string> GamesWithStudios()
         {
             var games = repo.ReadAll();
-
-            List<GamewithStudi> a = new List<GamewithStudi>();
+            List<string> a = new List<string>();
+          
+            
             foreach (var game in games)
             {
-                a.Add(new GamewithStudi(game, studrepo.Read(game.StudioId)));
+                
+                a.Add($"{game.Name} : {studrepo.Read(game.StudioId).Name}");
             }
             return a;
         }
-        public IEnumerable<GamewithMinreq> GamesWithRequirements()
+        public IEnumerable<string> GamesWithRequirements()
         {
             var games = repo.ReadAll();
-
-            List<GamewithMinreq> a = new List<GamewithMinreq>();
+            List<string> a = new List<string>();
+         
+            
             foreach (var game in games)
             {
-                a.Add(new GamewithMinreq(game, minrepo.Read(game.ReqId)));
+                a.Add($"{game.Name}: {minrepo.Read(game.ReqId).CPU},{minrepo.Read(game.ReqId).GPU}");
             }
             return a;
         }
-        public IEnumerable<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
+        public IEnumerable<string> GamesWithStudiosAndRequirements()
         {
             var games = repo.ReadAll();
 
-            List<GamewithStudioandMinreq> a = new List<GamewithStudioandMinreq>();
+            List<string> a = new List<string>();
             foreach (var game in games)
             {
-                a.Add(new GamewithStudioandMinreq(game, studrepo.Read(game.StudioId), minrepo.Read(game.ReqId)));
+                a.Add($"{game.Name} : {studrepo.Read(game.StudioId).Name}, {minrepo.Read(game.ReqId).CPU},{minrepo.Read(game.ReqId).GPU}");
             }
             return a;
         }
@@ -132,67 +135,9 @@ namespace JEAU1H_HFT_2021222.Logic
         {
             return repo.ReadAll().Where(x => minrepo.Read(x.ReqId).CPU == cpu);
         }
-        public class GamewithStudioandMinreq
-        {
-            public Game g;
-            public Studio s;
-            public MinRequirements r;
-            public GamewithStudioandMinreq(Game g, Studio s, MinRequirements r)
-            {
-                this.g = g;
-                this.s = s;
-                this.r = r;
-            }
-            public override bool Equals(object obj)
-            {
-                GamewithStudioandMinreq b = obj as GamewithStudioandMinreq;
-                if(b == null)
-                {
-                    return false;
-                }
-                return (this.g.Equals(b.g) && this.r.Equals(b.r) && this.s.Equals(b.s));
-            }
-        }
 
-        public class GamewithStudi
-        {
-            public Game g;
-            public Studio s;
-            public GamewithStudi(Game g, Studio s)
-            {
-                this.g = g;
-                this.s = s;
-            }
-            public override bool Equals(object obj)
-            {
-                GamewithStudi b = obj as GamewithStudi;
-                if(b == null)
-                {
-                    return false;
-                }
-                return (this.g.Equals(b.g)&& this.s.Equals(b.s));
-            }
-        }
-        public class GamewithMinreq
-        {
-            public Game g;
-            public MinRequirements r;
-            public GamewithMinreq(Game g, MinRequirements r)
-            {
-                this.g = g;
-                this.r = r;
-            }
-            public override bool Equals(object obj)
-            {
-                GamewithMinreq b = obj as GamewithMinreq;
-                if(b == null)
-                {
-                    return false;
-                }
-                return (this.g.Equals(b.g)&&this.r.Equals(b.r));
-            }
 
-        }
+
     }
 }
 

@@ -28,6 +28,12 @@ namespace JEAU1H_HFT_2021222.Models
             this.StudioID = id;
             this.CEOName = ceo;
         }
+        public Studio(string name, string ceo)
+        {
+            this.Name = name;
+            
+            this.CEOName = ceo;
+        }
         public override bool Equals(object obj)
         {
             Studio b = obj as Studio;

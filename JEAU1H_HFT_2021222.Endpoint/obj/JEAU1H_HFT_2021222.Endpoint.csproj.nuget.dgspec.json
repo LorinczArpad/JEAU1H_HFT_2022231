@@ -30,6 +30,12 @@
             "projectReferences": {
               "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Logic\\JEAU1H_HFT_2021222.Logic.csproj": {
                 "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Logic\\JEAU1H_HFT_2021222.Logic.csproj"
+              },
+              "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Models\\JEAU1H_HFT_2021222.Models.csproj": {
+                "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Models\\JEAU1H_HFT_2021222.Models.csproj"
+              },
+              "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Repository\\JEAU1H_HFT_2021222.Repository.csproj": {
+                "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Repository\\JEAU1H_HFT_2021222.Repository.csproj"
               }
             }
           }
@@ -67,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -128,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -188,7 +194,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -266,7 +272,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
         }
       }
     }

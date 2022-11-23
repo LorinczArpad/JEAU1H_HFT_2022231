@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static JEAU1H_HFT_2021222.Logic.GameLogic;
+
 
 namespace JEAU1H_HFT_2021222.Endpoint.Controllers
 {
@@ -53,34 +53,6 @@ namespace JEAU1H_HFT_2021222.Endpoint.Controllers
         {
             this.Gamelogic.Delete(id);
         }
-        /*
-        // non cruds
-        [HttpGet]
-        public IEnumerable<GamewithMinreq> GamesWithRequirements()
-        {
-            return this.Gamelogic.GamesWithRequirements();
-        }
-        
-        [HttpGet]
-        public IEnumerable<GamewithStudi> GamesWithStudios()
-        {
-            return this.Gamelogic.GamesWithStudios();
-        }
-        [HttpGet]
-        public IEnumerable<GamewithStudioandMinreq> GamesWithStudiosAndRequirements()
-        {
-            return this.Gamelogic.GamesWithStudiosAndRequirements();
-        }
-        [HttpGet("{name}")]
-        public IEnumerable<Game> GamesWithThisStudio(string name)
-        {
-            return this.Gamelogic.GamesWithThisStudio(name);
-        }
-        [HttpGet("{cpu}")]
-        public IEnumerable<Game> GamesWithThisCPU(string cpu)
-        {
-            return this.Gamelogic.GamesWithThisCPU(cpu);
-        }
-        */
+       
     }
 }

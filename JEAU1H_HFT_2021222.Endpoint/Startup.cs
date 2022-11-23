@@ -29,7 +29,7 @@ namespace JEAU1H_HFT_2021222.Endpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<VideoGamesDbContext>();
-            
+
 
             services.AddTransient<IRepository<Game>, GameRepository>();
             services.AddTransient<IRepository<MinRequirements>, MinRequirementsRepository>();
@@ -38,12 +38,7 @@ namespace JEAU1H_HFT_2021222.Endpoint
             services.AddTransient<IGameLogic, GameLogic>();
             services.AddTransient<IMinRequirementsLogic, MinRequirementsLogic>();
             services.AddTransient<IStudioLogic, StudioLogic>();
-
-
-
-
-
-
+            
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

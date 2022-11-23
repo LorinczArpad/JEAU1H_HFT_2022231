@@ -5822,6 +5822,8 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "JEAU1H_HFT_2021222.Logic >= 1.0.0",
+      "JEAU1H_HFT_2021222.Models >= 1.0.0",
+      "JEAU1H_HFT_2021222.Repository >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -5854,6 +5856,12 @@
           "projectReferences": {
             "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Logic\\JEAU1H_HFT_2021222.Logic.csproj": {
               "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Logic\\JEAU1H_HFT_2021222.Logic.csproj"
+            },
+            "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Models\\JEAU1H_HFT_2021222.Models.csproj": {
+              "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Models\\JEAU1H_HFT_2021222.Models.csproj"
+            },
+            "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Repository\\JEAU1H_HFT_2021222.Repository.csproj": {
+              "projectPath": "C:\\Users\\dudu\\source\\repos\\JEAU1H_HFT_2021222\\JEAU1H_HFT_2021222.Repository\\JEAU1H_HFT_2021222.Repository.csproj"
             }
           }
         }
@@ -5891,7 +5899,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }
