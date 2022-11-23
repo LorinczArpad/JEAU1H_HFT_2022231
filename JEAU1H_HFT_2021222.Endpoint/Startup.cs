@@ -1,3 +1,6 @@
+using JEAU1H_HFT_2021222.Logic;
+using JEAU1H_HFT_2021222.Models;
+using JEAU1H_HFT_2021222.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +28,22 @@ namespace JEAU1H_HFT_2021222.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddTransient<VideoGamesDbContext>();
+
+            services.AddTransient<IRepository<Game>, GameRepository>();
+            services.AddTransient<IRepository<MinRequirements>, MinRequirementsRepository>();
+            services.AddTransient<IRepository<Studio>, StudioRepository>();
+
+            services.AddTransient<IGameLogic, GameLogic>();
+            services.AddTransient<IMinRequirementsLogic, MinRequirementsLogic>();
+            services.AddTransient<IStudioLogic, StudioLogic>();
+
+
+
+
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

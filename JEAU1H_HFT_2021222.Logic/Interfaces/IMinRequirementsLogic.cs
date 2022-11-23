@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace JEAU1H_HFT_2021222.Logic
 {
-    interface IMinRequirementsLogic
+    public interface IMinRequirementsLogic
     {
         void Create(MinRequirements item);
         void Delete(int id);
