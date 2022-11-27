@@ -20,7 +20,7 @@ namespace JEAU1H_HFT_2021222.Client
             
             
         #region Menus
-            //list menu in gaes
+            //list menu in games
             var gameslistmenu = new ConsoleMenu(args, level: 2)
                 .Add("ListGames", () => List("Games"))
                 .Add("List Games with there studio", () => GamesWithStudios())
