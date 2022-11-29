@@ -110,39 +110,44 @@ namespace JEAU1H_HFT_2021222.Test
         [Test]
         public void GamesWithStudiosTest()
         {
-            IEnumerable<GamewithStudi> current = gm.GamesWithStudios();
-            IEnumerable<GamewithStudi> expected = new List<GamewithStudi>()
+            IEnumerable<string> current = gm.GamesWithStudios();
+            IEnumerable<string> expected = new List<string>()
             {
-                new GamewithStudi(new Game("FarCry1", 1, "2008", 1,1),new Studio("Ubisoft",1,"Yves Guillemot")),
-                new GamewithStudi(new Game("FarCry2", 2, "2008", 1,2),new Studio("Ubisoft",1,"Yves Guillemot")),
-                new GamewithStudi(new Game("FarCry3", 3, "2012", 1,3),new Studio("Ubisoft",1,"Yves Guillemot")),
-                new GamewithStudi(new Game("Dying Light", 4, "2015",2,4),new Studio("Square Enix",2,"Yosuke Matsuda")),
+                "FarCry1 : Ubisoft",
+                "FarCry2 : Ubisoft",
+                "FarCry3 : Ubisoft",
+                "Dying Light : Square Enix"
+
+
+ 
             };
             Assert.That(current, Is.EqualTo(expected));
         }
         [Test]
         public void GamesWithRequirementsTest()
         {
-            IEnumerable<GamewithMinreq> current = gm.GamesWithRequirements();
-            IEnumerable<GamewithMinreq> expected = new List<GamewithMinreq>()
+            IEnumerable<string> current = gm.GamesWithRequirements();
+            IEnumerable<string> expected = new List<string>()
             {
-                new GamewithMinreq(new Game("FarCry1", 1, "2008", 1,1),new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060")),
-                new GamewithMinreq(new Game("FarCry2", 2, "2008", 1,2),new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080")),
-                new GamewithMinreq(new Game("FarCry3", 3, "2012", 1,3),new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti")),
-                new GamewithMinreq(new Game("Dying Light", 4, "2015",2,4),new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600")),
+                "FarCry1: Intel Core i7-7820X Processor,GeForce RTX 2060",
+                "FarCry2: AMD Ryzen 7 5800H,GeForce GTX 1080",
+                "FarCry3: AMD Ryzen Threadripper 2950X,GeForce GTX 1070 Ti",
+                "Dying Light: Intel Core i7-10700F Processor,Radeon RX 6600"
+                
             };
             Assert.That(current, Is.EqualTo(expected));
         }
         [Test]
         public void GamesWithStudiosAndRequirementsTest()
         {
-            IEnumerable<GamewithStudioandMinreq> current = gm.GamesWithStudiosAndRequirements();
-            IEnumerable<GamewithStudioandMinreq> expected = new List<GamewithStudioandMinreq>()
+            IEnumerable<string> current = gm.GamesWithStudiosAndRequirements();
+            IEnumerable<string> expected = new List<string>()
             {
-                new GamewithStudioandMinreq(new Game("FarCry1", 1, "2008", 1,1),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(1,"Intel Core i7-7820X Processor","GeForce RTX 2060")),
-                new GamewithStudioandMinreq(new Game("FarCry2", 2, "2008", 1,2),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(2,"AMD Ryzen 7 5800H","GeForce GTX 1080")),
-                new GamewithStudioandMinreq(new Game("FarCry3", 3, "2012", 1,3),new Studio("Ubisoft",1,"Yves Guillemot"),new MinRequirements(3,"AMD Ryzen Threadripper 2950X","GeForce GTX 1070 Ti")),
-                new GamewithStudioandMinreq(new Game("Dying Light", 4, "2015",2,4),new Studio("Square Enix",2,"Yosuke Matsuda"),new MinRequirements(4,"Intel Core i7-10700F Processor","Radeon RX 6600")),
+                "FarCry1 : Ubisoft, Intel Core i7-7820X Processor,GeForce RTX 2060",
+                "FarCry2 : Ubisoft, AMD Ryzen 7 5800H,GeForce GTX 1080",
+                "FarCry3 : Ubisoft, AMD Ryzen Threadripper 2950X,GeForce GTX 1070 Ti",
+                "Dying Light : Square Enix, Intel Core i7-10700F Processor,Radeon RX 6600"
+               
             };
             Assert.That(current, Is.EqualTo(expected));
         }
