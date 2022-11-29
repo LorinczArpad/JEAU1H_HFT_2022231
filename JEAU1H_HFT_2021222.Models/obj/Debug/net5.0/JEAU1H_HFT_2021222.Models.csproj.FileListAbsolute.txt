@@ -9,3 +9,4 @@ C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debu
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.dll
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\ref\JEAU1H_HFT_2021222.Models.dll
 C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.pdb
+C:\Users\dudu\source\repos\JEAU1H_HFT_2021222\JEAU1H_HFT_2021222.Models\obj\Debug\net5.0\JEAU1H_HFT_2021222.Models.csproj.AssemblyReference.cache

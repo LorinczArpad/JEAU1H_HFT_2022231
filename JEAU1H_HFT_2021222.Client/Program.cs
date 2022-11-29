@@ -24,9 +24,10 @@ namespace JEAU1H_HFT_2021222.Client
             var gameslistmenu = new ConsoleMenu(args, level: 2)
                 .Add("ListGames", () => List("Games"))
                 .Add("List Games with there studio", () => GamesWithStudios())
-                .Add("List Games with CPU",()=> GamesWithThisCPU())
+                .Add("List Games with this CPU",()=> GamesWithThisCPU())
                 .Add("List all information", () => GamesWithStudiosAndRequirements())
                 .Add("List Games with there Requirements",() => GamesWithRequirements())
+                .Add("List Games with this studio",() => GamesWithThisStudio())
                 .Add("Exit", ConsoleMenu.Close);
 
 
@@ -366,9 +367,18 @@ namespace JEAU1H_HFT_2021222.Client
             }
             Thread.Sleep(3500);
         }
-        
+        static void GamesWithThisStudio()
+        {
+            Console.WriteLine("Give the Studio's name: ");
+            var studname = Console.ReadLine();
+            foreach (var item in rest.Get<Game>("Stat/GamesWithThisStudio/" +studname))
+            {
+                Console.WriteLine($"{item.Name} ");
+            }
+            Thread.Sleep(3500);
+        }
         #endregion
-        
+
     }
 
 }
