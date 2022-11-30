@@ -284,6 +284,7 @@ namespace JEAU1H_HFT_2021222.Client
                 Console.WriteLine($"Studio's name: {item.Name} CEO's name: {item.CEOName} StudioID: {item.StudioID}");
                 rest.Put<Studio>(new Studio(nameg, studid, ceo), "Studio");
                 var item2 = rest.Get<Studio>(studid, "Studio");
+                Console.WriteLine("New Item:");
                 Console.WriteLine($"Studio's name: {item2.Name} CEO's name: {item2.CEOName} StudioID: {item2.StudioID}");
                 Thread.Sleep(3500);
             }
@@ -300,7 +301,8 @@ namespace JEAU1H_HFT_2021222.Client
                 Console.WriteLine($"CPU: {item.CPU} GPU: {item.GPU} ID: {item.ReqId}");
                 rest.Put<MinRequirements>(new MinRequirements(id, cpu, gpu), "MinRequirements");
                 var item2 = rest.Get<MinRequirements>(id, "MinRequirements");
-                Console.WriteLine($"CPU: {item.CPU} GPU: {item.GPU} ID: {item.ReqId}");
+                Console.WriteLine("New Item:");
+                Console.WriteLine($"CPU: {item2.CPU} GPU: {item2.GPU} ID: {item2.ReqId}");
                 Thread.Sleep(3500);
             }
         }

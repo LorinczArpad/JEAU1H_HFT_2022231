@@ -15,16 +15,18 @@ namespace JEAU1H_HFT_2021222.Repository
         }
         public override MinRequirements Read(int id)
         {
-            return ctx.Requirements.FirstOrDefault(t => t.ReqId== id);
+            return ctx.Requirements.FirstOrDefault(t => t.ReqId == id);
         }
 
         public override void Update(MinRequirements item)
         {
             var old = Read(item.ReqId);
-            foreach (var prop in old.GetType().GetProperties())
-            {
-                prop.SetValue(old, prop.GetValue(item));
-            }
+            old.CPU = item.CPU;
+            old.GPU = item.GPU;
+            old.ReqId = item.ReqId;
+          
+
+           
             ctx.SaveChanges();
         }
     }

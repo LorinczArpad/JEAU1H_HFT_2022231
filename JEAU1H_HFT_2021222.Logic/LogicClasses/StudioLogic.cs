@@ -43,7 +43,7 @@ namespace JEAU1H_HFT_2021222.Logic
 
         public Studio Read(int id)
         {
-            if (repo.ReadAll().Last().StudioID > id)
+            if (repo.ReadAll().Last().StudioID >= id)
             {
                 return this.repo.Read(id);
             }

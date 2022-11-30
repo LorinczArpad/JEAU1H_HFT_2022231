@@ -21,10 +21,11 @@ namespace JEAU1H_HFT_2021222.Repository
         public override void Update(Studio item)
         {
             var old = Read(item.StudioID);
-            foreach (var prop in old.GetType().GetProperties())
-            {
-                prop.SetValue(old, prop.GetValue(item));
-            }
+            old.CEOName = item.CEOName;
+            old.Name = item.Name;
+            old.StudioID = item.StudioID;
+            
+            
             ctx.SaveChanges();
         }
     }
